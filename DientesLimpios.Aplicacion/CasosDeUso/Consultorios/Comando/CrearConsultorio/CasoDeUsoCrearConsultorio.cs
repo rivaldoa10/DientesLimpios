@@ -1,6 +1,7 @@
 ﻿using DientesLimpios.Aplicacion.Contratos.Exepciones;
 using DientesLimpios.Aplicacion.Contratos.Persistencia;
 using DientesLimpios.Aplicacion.Contratos.Repositorios;
+using DientesLimpios.Aplicacion.Utilidades.Mediador;
 using DientesLimpios.Dominio.Entidades;
 using FluentValidation;
 using System;
@@ -11,30 +12,22 @@ using System.Threading.Tasks;
 
 namespace DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comando.CrearConsultorio
 {
-    public class CasoDeUsoCrearConsultorio
+    public class CasoDeUsoCrearConsultorio : IRequestHandler<ComandoCrearConsultorio, Guid>
     {
         private readonly IRepositorioConsultorio repositorio;
         private readonly IUnidadDeTrabajo unidadDeTrabajo;
         private readonly IValidator<ComandoCrearConsultorio> validator;
 
-        public CasoDeUsoCrearConsultorio(IRepositorioConsultorio repositorio, IUnidadDeTrabajo unidadDeTrabajo, IValidator<ComandoCrearConsultorio> validator)
+        public CasoDeUsoCrearConsultorio(IRepositorioConsultorio repositorio, IUnidadDeTrabajo unidadDeTrabajo)
         {
             this.repositorio = repositorio;
             this.unidadDeTrabajo = unidadDeTrabajo;
-            this.validator = validator;
         }
         public async Task<Guid> Handle(ComandoCrearConsultorio comando)
         {
-            var resultadoValidacion = await validator.ValidateAsync(comando);
-
-            if (!resultadoValidacion.IsValid)
-            {
-                throw new ExcepcionDeValidacion(resultadoValidacion);
-            }
-
+            var consultorio = new Consultorio(comando.Nombre);
             try
             {
-                var consultorio = new Consultorio(comando.Nombre);
                 var respuesta = await repositorio.Agregar(consultorio);
                 await unidadDeTrabajo.Persistir();
                 return respuesta.Id;
