@@ -31,7 +31,7 @@ namespace DientesLimpios.Pruebas.Dominio.Entidades
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Constructor_FechaInicioEnElPasado_LanaExepcion()
         {
             var intervalo = new IntervaloDeTiempo(DateTime.UtcNow.AddDays(-1), DateTime.UtcNow);
@@ -47,7 +47,7 @@ namespace DientesLimpios.Pruebas.Dominio.Entidades
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Cancelar_CitaNoProgramada_LanzaExepcion()
         {
             var cita = new Cita(_pacienteId, _dentistaId, _consultorioId, _intervaloDeTiempo);

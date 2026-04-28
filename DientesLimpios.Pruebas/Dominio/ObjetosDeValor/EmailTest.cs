@@ -12,14 +12,14 @@ namespace DientesLimpios.Pruebas.Dominio.ObjetosDeValor
     public class EmailTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Constructor_EmailNulo_LanzaExcepcion()
         {
             new Email(null!);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Constructor_EmailSinArroba_LanzaExcepcion()
         {
             new Email("casa.com");

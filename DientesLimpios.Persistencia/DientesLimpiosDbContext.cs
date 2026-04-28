@@ -1,4 +1,6 @@
-﻿using DientesLimpios.Dominio.Entidades;
+﻿using DientesLimpios.Aplicacion.Contratos.Identidad;
+using DientesLimpios.Dominio.Comunes;
+using DientesLimpios.Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,12 +12,40 @@ namespace DientesLimpios.Persistencia
 {
     public class DientesLimpiosDbContext : DbContext
     {
-        public DientesLimpiosDbContext(DbContextOptions<DientesLimpiosDbContext> options) : base(options)
+        private readonly IServicioUsuarios? servicioUsuarios;
+
+        public DientesLimpiosDbContext(DbContextOptions<DientesLimpiosDbContext> options,
+            IServicioUsuarios servicioUsuarios) : base(options)
         {
+            this.servicioUsuarios = servicioUsuarios;
         }
 
         protected DientesLimpiosDbContext()
         {
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            if (servicioUsuarios is not null)
+            {
+                foreach (var entry in ChangeTracker.Entries<EntidadAuditable>())
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            entry.Entity.FechaCreacion = DateTime.UtcNow;
+                            entry.Entity.CreadoPor = servicioUsuarios.ObtenerUsuarioId();
+                            break;
+                        case EntityState.Modified:
+                            entry.Entity.UltimaFechaModificacion = DateTime.UtcNow;
+                            entry.Entity.UltimaModificacionPor = servicioUsuarios.ObtenerUsuarioId();
+                            break;
+                    }
+                }
+            }
+
+
+            return base.SaveChangesAsync(cancellationToken);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,5 +56,8 @@ namespace DientesLimpios.Persistencia
         }
 
         public DbSet<Consultorio> Consultorios { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<Dentista> Dentistas { get; set; }
+        public DbSet<Cita> Citas { get; set; }
     }
 }

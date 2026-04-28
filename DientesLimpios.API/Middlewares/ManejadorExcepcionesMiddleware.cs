@@ -1,5 +1,6 @@
 ﻿using DientesLimpios.Aplicacion.Contratos.Excepciones;
 using DientesLimpios.Aplicacion.Contratos.Exepciones;
+using DientesLimpios.Dominio.Exepciones;
 using System.Net;
 using System.Text.Json;
 
@@ -41,6 +42,11 @@ namespace DientesLimpios.API.Middlewares
                     httpStatusCode = HttpStatusCode.BadRequest;
                     resultado = JsonSerializer.Serialize(excepcionDeValidacion.ErroresDeValidacion);
                     break;
+                case ExcepcionDeReglaDeNegocio excepcionReglaDeNegocio:
+                    httpStatusCode = HttpStatusCode.BadRequest;
+                    resultado = JsonSerializer.Serialize(excepcionReglaDeNegocio.Message);
+                    break;
+
             }
 
             context.Response.StatusCode = (int)httpStatusCode;
@@ -55,4 +61,5 @@ namespace DientesLimpios.API.Middlewares
             return builder.UseMiddleware<ManejadorExcepcionesMiddleware>();
         }
     }
+
 }

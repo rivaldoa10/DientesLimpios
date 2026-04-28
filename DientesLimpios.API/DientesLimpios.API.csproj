@@ -4,10 +4,11 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>014f54d2-dd87-49e2-896d-100a7ac7a8c5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -15,6 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DientesLimpios.Aplicacion\DientesLimpios.Aplicacion.csproj" />
+    <ProjectReference Include="..\DientesLimpios.Identidad\DientesLimpios.Identidad.csproj" />
+    <ProjectReference Include="..\DientesLimpios.Infraestructura\DientesLimpios.Infraestructura.csproj" />
     <ProjectReference Include="..\DientesLimpios.Persistencia\DientesLimpios.Persistencia.csproj" />
   </ItemGroup>
 

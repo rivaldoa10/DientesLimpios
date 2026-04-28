@@ -20,6 +20,9 @@ namespace DientesLimpios.Persistencia
                 options.UseSqlServer("name=DientesLimpiosConnectionString"));
 
             services.AddScoped<IRepositorioConsultorio, RepositorioConsultorios>();
+            services.AddScoped<IRepositorioPacientes, RepositorioPacientes>();
+            services.AddScoped<IRepositorioDentista, RepositorioDentista>();
+            services.AddScoped<IRepositorioCitas, RepositorioCitas>();
             services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajoEFCore>();
 
             return services;

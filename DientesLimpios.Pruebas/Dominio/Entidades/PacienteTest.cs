@@ -13,7 +13,7 @@ namespace DientesLimpios.Pruebas.Dominio.Entidades
     public class PacienteTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Constructor_NombreNulo_LanzaExcepcion()
         {
             var email = new Email("Juan@casa.com");
@@ -21,7 +21,7 @@ namespace DientesLimpios.Pruebas.Dominio.Entidades
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Constructor_emailNulo_LanzaExcepcion()
         {
             new Paciente("Juan", null!);

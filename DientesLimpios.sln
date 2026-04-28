@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DientesLimpios.Persistencia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DientesLimpios.API", "DientesLimpios.API\DientesLimpios.API.csproj", "{32AFDA0A-257C-4696-A9D0-7CFA16977CE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DientesLimpios.Infraestructura", "DientesLimpios.Infraestructura\DientesLimpios.Infraestructura.csproj", "{AEF04888-FD63-421D-9048-805D73B2A525}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DientesLimpios.Identidad", "DientesLimpios.Identidad\DientesLimpios.Identidad.csproj", "{B019E5F5-2B4D-468A-BA38-7880ACC91F16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{32AFDA0A-257C-4696-A9D0-7CFA16977CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32AFDA0A-257C-4696-A9D0-7CFA16977CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32AFDA0A-257C-4696-A9D0-7CFA16977CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF04888-FD63-421D-9048-805D73B2A525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF04888-FD63-421D-9048-805D73B2A525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF04888-FD63-421D-9048-805D73B2A525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF04888-FD63-421D-9048-805D73B2A525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B019E5F5-2B4D-468A-BA38-7880ACC91F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B019E5F5-2B4D-468A-BA38-7880ACC91F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B019E5F5-2B4D-468A-BA38-7880ACC91F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B019E5F5-2B4D-468A-BA38-7880ACC91F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +69,8 @@ Global
 		{BB9FE90E-69A4-42D1-9AF6-017B6C993462} = {D782010A-B742-4483-9105-A5627C5C9D46}
 		{10B10C68-5717-48FB-822A-1FC8E84C134A} = {3D70B2C4-5093-4CAE-AD70-168818693F40}
 		{32AFDA0A-257C-4696-A9D0-7CFA16977CE4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{AEF04888-FD63-421D-9048-805D73B2A525} = {3D70B2C4-5093-4CAE-AD70-168818693F40}
+		{B019E5F5-2B4D-468A-BA38-7880ACC91F16} = {3D70B2C4-5093-4CAE-AD70-168818693F40}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E3672DB-322D-4519-96A5-D2C5943C6D44}

@@ -12,7 +12,7 @@ namespace DientesLimpios.Pruebas.Dominio.Entidades
     public class ConsultorioTest
     {
         [TestMethod]
-        [ExpectedException(typeof(ExepcionDeReglaDeNegocio))]
+        [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
         public void Constructor_NombreNulo_LanzaExcepcion()
         {
             new Consultorio(null!);

@@ -10,16 +10,21 @@ namespace DientesLimpios.Dominio.ObjetoDeValor
     public record Email
     {
         public string Valor { get; } = null!;
+
+        private Email()
+        {
+            
+        }
         public Email(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
-                throw new ExepcionDeReglaDeNegocio($"El {nameof(email)} es obligatorio");
+                throw new ExcepcionDeReglaDeNegocio($"El {nameof(email)} es obligatorio");
             }
 
             if (!email.Contains("@"))
             {
-                throw new ExepcionDeReglaDeNegocio($"El {nameof(email)} no es valido");
+                throw new ExcepcionDeReglaDeNegocio($"El {nameof(email)} no es valido");
             }
             Valor = email;
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DientesLimpios.Dominio.Exepciones
 {
-    public class ExepcionDeReglaDeNegocio : Exception
+    public class ExcepcionDeReglaDeNegocio : Exception
     {
-        public ExepcionDeReglaDeNegocio(string mensaje) : base(mensaje)
+        public ExcepcionDeReglaDeNegocio(string mensaje) : base(mensaje)
         {
             
         }
